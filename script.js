@@ -2,6 +2,30 @@ let iicon  = document.getElementById('eyeicon');
 let password  = document.getElementById('password');
 var msg = document.getElementById('text');
 var str = document.getElementById('streght');
+const uppercase = "ABCDEFGHIJKLMNOPQRSTVUWXYZ";
+const lowercase = "abcdefghijklmnopqrstvuwxyz";
+const number = "0123456789";
+const specsym = "@!#$%^&*+";
+const lengthva = 12;
+const allchar = lowercase + uppercase + number + specsym;
+
+function createpassword() {
+    let genpass = "";
+    genpass += uppercase[Math.floor(Math.random() * uppercase.length)];
+    genpass += lowercase[Math.floor(Math.random() * lowercase.length)];
+    genpass += number[Math.floor(Math.random() * number.length)];
+    genpass += specsym[Math.floor(Math.random() * specsym.length)];
+
+    while (lengthva > genpass.length ) {
+        genpass += allchar[Math.floor(Math.random() * allchar.length)];
+     
+    }
+     str.innerHTML="Strong";
+     msg.style.display="block"
+      msg.style.color = "green";
+      password.style.borderColor = "green";
+    password.value = genpass;
+}
 
 
 password.addEventListener('input',()=>{
@@ -16,12 +40,12 @@ password.addEventListener('input',()=>{
       str.innerHTML="weak";
       msg.style.color = "red";
       password.style.borderColor = "red";
-   } else if (password.value.length>4  && password.value.length<8) {
+   } else if (password.value.length>4  && password.value.length<8 ) {
         str.innerHTML="Medium";
          msg.style.color = "yellow";
          password.style.borderColor = "yellow";
-   } else if (password.value.length>8 && password.value.includes("@","!")) {
-     str.innerHTML="Strong";
+   } else if (password.value.length>8) {
+    //  str.innerHTML="Strong";
       msg.style.color = "green";
       password.style.borderColor = "green";
    }
@@ -38,3 +62,4 @@ iicon.onclick = function () {
         iicon.src="eye-close.png";
     }
 }
+

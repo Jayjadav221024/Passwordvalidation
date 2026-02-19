@@ -11,6 +11,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     width: 100vw;
     height: 100vh;
 }
@@ -42,4 +43,13 @@ body{
     font-size: 1.4rem;
     color: #fff;
     display: none;
+}
+#pass{
+    padding: 0.5rem;
+    border: 0;
+    outline: 0;
+    background-color: green;
+    border-radius: 0.3rem;
+    color: #fff;
+    font-size: 1rem;
 }
